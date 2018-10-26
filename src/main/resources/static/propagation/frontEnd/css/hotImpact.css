@@ -1,0 +1,28 @@
+.main-content-table thead th{
+	text-align: center;
+}
+.main-content-table tbody tr td{
+	vertical-align: middle;
+}
+.channel-proportion-content,
+.network-proportion-content,
+.original-reprinted-content{
+	margin-left: 50%;
+}
+#channel-proportion-echarts,
+#channel-proportion-echarts1,
+#channel-proportion-echarts2,
+#channel-proportion-echarts3,
+#channel-proportion-echarts4,
+#network-proportion-echarts,
+#network-proportion-echarts1,
+#network-proportion-echarts2,
+#network-proportion-echarts3,
+#network-proportion-echarts4,
+#original-reprinted-echarts,
+#original-reprinted-echarts1,
+#original-reprinted-echarts2,
+#original-reprinted-echarts3,
+#original-reprinted-echarts4{
+	margin-left:-100px;
+}

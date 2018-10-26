@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>传播监测首页_iMonitor</title>
+
+    <meta name="keywords" content="iNews,智慧新闻,聚合平台,内容聚合,自然语言处理,新闻舆情,采编助手,新闻分析 ,News,intelligent news" />
+	<meta name="description" content="iNews智慧新闻软件是北京荣之联科技股份有限公司自主研发产品，是面向政府、媒体行业推出的智慧化新闻生产服务工具。iNews采用领先的大数据和自然语言处理技术，帮助用户打造优质内容聚合平台，提高内容加工效率和内容质量，促进媒体融合。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit" />
+    <link rel="shortcut icon" href="../../static/assets/images/favicon.ico" type="image/x-icon" th:href="@{/assets/images/favicon.ico}"/>
+	<!-- 引入公用的CSS -->
+    <object style="display:none;" th:include="frontEnd/common/styles :: styles"></object>
+
+    <!-- DataTables Css -->
+    <link rel="stylesheet" type="text/css" href="../../static/assets/css/dataTables.bootstrap.css" th:href="@{/assets/css/dataTables.bootstrap.css}"/>
+	
+    <!-- Self Css -->
+    <link rel="stylesheet" type="text/css" href="../../static/frontEnd/css/index.css" th:href="@{/frontEnd/css/temporary/detail.css}"/>
+</head>
+<body>
+	<input type="hidden"  id="webpageCode" th:value="${webpageCode}"/>
+	
+	<div id="header" th:include="frontEnd/common/header :: header"></div>
+    <!-- Navbar -->
+    <div class="navbar" th:remove="all">
+        <div class="navbar-inner">
+            <div class="navbar-container">
+                <!-- Navbar Barnd -->
+                <div class="navbar-header pull-left">
+                    <a href="#" class="navbar-brand">
+                        <small>
+                            新闻传播监测系统
+                        </small>
+                    </a>
+                </div>
+                <!-- /Navbar Barnd -->
+
+                <!-- Sidebar Collapse -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="collapse-icon fa fa-bars"></i>
+                </div>
+                <!-- /Sidebar Collapse -->
+                <!-- Account Area and Settings -->
+                <div class="navbar-header pull-right">
+                    <div class="navbar-account">
+                        <ul class="account-area">
+                            <li>
+                                <a class="login-area dropdown-toggle" data-toggle="dropdown">
+                                    <div class="avatar" title="View your public profile">
+                                        <i class="fa fa-user fa-lg"></i>
+                                    </div>
+                                    <section>
+                                        <h2><span class="profile"><span>admin</span></span></h2>
+                                    </section>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /Account Area and Settings -->
+            </div>
+        </div>
+    </div>
+    <!-- /Navbar -->
+    <!-- Main Container -->
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+        <div class="page-container">
+            <!-- Page Content -->
+            <div class="page-content" style="margin-left:0px;">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li class="active">
+                            <i class="fa fa-home"></i>
+                            <a href="/imonitor" th:href="@{/}">数据展示详情</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Body -->
+                <div class="page-body">
+
+                    <div class="row data-show-all">
+                        <div class="col-xs-12 col-md-12 col-lg-12">
+                            <div class="widget">
+                                <div class="widget-header bordered-bottom bordered-sky">
+                                    <span class="widget-caption">数据展示详情</span>
+                                </div><!--Widget Header-->
+                                <div class="widget-body">
+                                    <div id="reprinted-most-week" class="tab-pane in active detailShow">
+                                    </div>
+                                </div><!--Widget Body-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+        </div>
+        <!-- /Page Container -->
+        <!-- Main Container -->
+
+    </div>
+	
+	<!-- 引入公用的JS -->
+    <object style="display:none;" th:include="frontEnd/common/scripts :: scripts"></object>
+
+
+    <!-- DataTables Js -->
+    <script src="../../static/assets/js/datatable/jquery.dataTables.min.js" th:src="@{/assets/js/datatable/jquery.dataTables.min.js}"></script>
+    <script src="../../static/assets/js/datatable/dataTables.bootstrap.min.js" th:src="@{/assets/js/datatable/dataTables.bootstrap.min.js}"></script>
+    <script src="../../static/assets/js/datatable/datatables-init.js" th:src="@{/assets/js/datatable/datatables-init.js}"></script>
+
+    <!-- Self Scripts -->
+    <script src="../../static/frontEnd/js/static/index.js" th:src="@{/frontEnd/js/dynamic/temporary/detail.js}"></script>
+</body>
+</html>

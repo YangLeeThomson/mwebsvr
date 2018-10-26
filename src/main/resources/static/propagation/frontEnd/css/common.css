@@ -1,0 +1,18 @@
+.navbar .navbar-inner .navbar-header .navbar-account .account-area .login-area .avatar{
+	border-left:0px;
+	line-height: 29px;
+	text-align: center;
+}
+.navbar .navbar-inner .navbar-header .navbar-account .account-area .login-area .avatar i{
+	color: #fff;
+}
+.navbar .navbar-inner .navbar-header .navbar-account .account-area .login-area section{
+	margin-top: 3px;
+}
+
+.page-body{
+	padding:10px 20px 24px;
+}
+.widget{
+	margin:3px 0 10px 0;
+}

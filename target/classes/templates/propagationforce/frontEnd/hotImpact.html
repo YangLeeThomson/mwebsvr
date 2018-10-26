@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>热点话题影响分析</title>
+
+    <meta name="keywords" content="iNews,智慧新闻,聚合平台,内容聚合,自然语言处理,新闻舆情,采编助手,新闻分析 ,News,intelligent news" />
+	<meta name="description" content="iNews智慧新闻软件是北京荣之联科技股份有限公司自主研发产品，是面向政府、媒体行业推出的智慧化新闻生产服务工具。iNews采用领先的大数据和自然语言处理技术，帮助用户打造优质内容聚合平台，提高内容加工效率和内容质量，促进媒体融合。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit" />
+    <link rel="shortcut icon" href="../../../static/assets/images/favicon.ico" type="image/x-icon" th:href="@{/assets/images/favicon.ico}"/>
+	<!-- 引入公用的CSS -->
+    <object style="display:none;" th:include="frontEnd/common/styles :: styles"></object>
+    <!-- Common CSS -->
+    <link rel="stylesheet"  href="../../../static/propagation/frontEnd/css/common.css" th:href="@{/propagation/frontEnd/css/common.css}"/>
+    <!-- Self CSS -->
+    <link rel="stylesheet"  href="../../../static/propagation/frontEnd/css/hotImpact.css" th:href="@{/propagation/frontEnd/css/hotImpact.css}"/>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="navbar-container">
+                <!-- Navbar Barnd -->
+                <div class="navbar-header pull-left">
+                    <a href="#" class="navbar-brand">
+                        <small>
+                            新闻传播监测系统
+                        </small>
+                    </a>
+                </div>
+                <!-- /Navbar Barnd -->
+                <!-- Sidebar Collapse -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="collapse-icon fa fa-bars"></i>
+                </div>
+                <!-- /Sidebar Collapse -->
+                <!-- Account Area and Settings -->
+                <div class="navbar-header pull-right">
+                    <div class="navbar-account">
+                        <ul class="account-area">
+                            <li>
+                                <a class="login-area dropdown-toggle" data-toggle="dropdown">
+                                    <div class="avatar" title="View your public profile">
+                                        <i class="fa fa-user fa-lg"></i>
+                                    </div>
+                                    <section>
+                                        <h2><span class="profile"><span>admin</span></span></h2>
+                                    </section>
+                                </a>
+                            </li>
+                            <li>
+                            	<a class="login-area"  th:href="@{/logout}">
+                                    <div class="avatar" title="View your public profile">
+                                        <i class="fa fa-sign-out fa-lg"></i>
+                                    </div>
+                                    <section>
+                                        <h2><span class="profile"><span>退出</span></span></h2>
+                                    </section>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /Account Area and Settings -->
+            </div>
+        </div>
+    </div>
+    <!-- /Navbar -->
+    
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+        <div class="page-container">
+            <div class="page-sidebar" id="sidebar">
+                <div class="page-container">
+                    <div class="sidebar-header-wrapper"></div>
+                    <!-- /Page Sidebar Header -->
+                    <!-- Sidebar Menu -->
+                    <ul class="nav sidebar-menu" >
+                    	<li>
+	                        <a href="javascript:void(0)" target="_blank" th:href='@{/}'>
+	                            <i class="menu-icon glyphicon glyphicon-home"></i>
+	                            <span class="menu-text">苏州电视台</span>
+	                            <i class="menu-expand"></i>
+	                        </a>
+	                        <ul class="submenu" style="display: none;">
+	                        	<li data-requestid="4">
+	                        		<a href="javascript:void(0)"><span class="menu-text">苏州台</span></a>
+	                        	</li>
+	                        </ul>
+	                    </li>
+                        <li >
+	                        <a href="javascript:void(0)" target="_blank" th:href='@{/gotoIndex}'>
+	                            <i class="menu-icon glyphicon glyphicon-home"></i>
+	                            <span class="menu-text">综合传播力分析</span>
+	                        </a>
+	                    </li>
+	                    <li>
+	                        <a href="javascript:void(0)" th:href="@{/gotoMediaForwarding}" target="_blank">
+	                            <i class="menu-icon fa fa-th"></i>
+	                            <span class="menu-text">被转发情况分析</span>
+	                        </a>
+	                    </li>
+	                    <li class="active">
+	                        <a href="javascript:void(0)" th:href="@{/gotoHotImpact}" target="_blank">
+	                            <i class="menu-icon fa fa-weibo"></i>
+	                            <span class="menu-text">热点话题影响分析</span>
+	                        </a>
+	                    </li>
+                    </ul>
+                    <!-- /Sidebar Menu -->
+
+                </div>
+            </div>
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="#" th:href="@{/gotoIndex}">综合传播力分析</a>
+                        </li>
+                        <li class="active">
+                            热点话题影响分析
+                        </li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Body -->
+                <div class="page-body">
+                	<div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="widget">
+                                <div class="widget-body">
+                                    <table class="table table-hover table-bordered text-center main-content-table">
+                                        <thead >
+                                            <tr>
+                                                <th style="width: 250px;">事件</th>
+                                                <th style="width: 100px;">报道量</th>
+                                                <th style="width: 200px">各渠道报道占比</th>
+                                                <th style="width: 200px">全网报道占比</th>
+                                                <th style="width: 200px">原创/转载占比</th>
+                                                <th style="width: 150px">用户参与数</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a href="javascript:void(0)">一带一路·合作共赢</a>
+                                                </td>
+                                                <td>3508 篇</td>
+                                                <td>
+                                                    <div class="channel-proportion-content">
+                                                        <div id="channel-proportion-echarts" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="network-proportion-content">
+                                                        <div id="network-proportion-echarts" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="original-reprinted-content">
+                                                        <div id="original-reprinted-echarts" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="user-participate-content">
+                                                        <p>评论：<span>1234</span></p>
+                                                        <p>点击：<span>126550</span></p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="javascript:void(0)">马克龙当选法国总统</a>
+                                                </td>
+                                                <td>769 篇</td>
+                                                <td>
+                                                    <div class="channel-proportion-content">
+                                                        <div id="channel-proportion-echarts1" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="network-proportion-content">
+                                                        <div id="network-proportion-echarts1" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="original-reprinted-content">
+                                                        <div id="original-reprinted-echarts1" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="user-participate-content">
+                                                        <p>评论：<span>2367</span></p>
+                                                        <p>点击：<span>178945</span></p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="javascript:void(0)">国产大飞机C919首飞</a>
+                                                </td>
+                                                <td>2362 篇</td>
+                                                <td>
+                                                    <div class="channel-proportion-content">
+                                                        <div id="channel-proportion-echarts2" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="network-proportion-content">
+                                                        <div id="network-proportion-echarts2" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="original-reprinted-content">
+                                                        <div id="original-reprinted-echarts2" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="user-participate-content">
+                                                        <p>评论：<span>2134</span></p>
+                                                        <p>点击：<span>229345</span></p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="javascript:void(0)">2017巴菲特股东大会</a>
+                                                </td>
+                                                <td>719 篇</td>
+                                                <td>
+                                                    <div class="channel-proportion-content">
+                                                        <div id="channel-proportion-echarts3" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="network-proportion-content">
+                                                        <div id="network-proportion-echarts3" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="original-reprinted-content">
+                                                        <div id="original-reprinted-echarts3" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="user-participate-content">
+                                                        <p>评论：<span>1970</span></p>
+                                                        <p>点击：<span>523450</span></p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="javascript:void(0)">英国脱欧事件</a>
+                                                </td>
+                                                <td>1269 篇</td>
+                                                <td>
+                                                    <div class="channel-proportion-content">
+                                                        <div id="channel-proportion-echarts4" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="network-proportion-content">
+                                                        <div id="network-proportion-echarts4" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="original-reprinted-content">
+                                                        <div id="original-reprinted-echarts4" style="width:200px;height: 150px"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="user-participate-content">
+                                                        <p>评论：<span>1890</span></p>
+                                                        <p>点击：<span>189898</span></p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+        </div>
+
+    </div>
+	
+	<!-- 引入公用的JS -->
+    <object style="display:none;" th:include="frontEnd/common/scripts :: scripts"></object>
+    
+
+    <!-- echarts -->
+    <script src="https://cdn.bootcss.com/echarts/3.5.4/echarts.min.js" ></script>
+    
+    <!-- Self JS -->
+    <script src="../../../static/propagation/frontEnd/js/static/hotImpact.js" th:src="@{/propagation/frontEnd/js/static/hotImpact.js}"></script>
+</body>
+</html>

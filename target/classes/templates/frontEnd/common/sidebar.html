@@ -1,0 +1,43 @@
+
+<div th:fragment="sidebar">
+		
+		<script src="../../static/frontEnd/js/static/common/sidebar.js" th:src="@{/frontEnd/js/dynamic/common/sidebar.js}"></script>
+        
+        <div class="sidebar-header-wrapper"></div>
+        <!-- /Page Sidebar Header -->
+        <!-- Sidebar Menu -->
+        <ul class="nav sidebar-menu" th:remove='body'>
+	        <li class="active">
+	            <a href="javascript:void(0)">
+	                <i class="menu-icon glyphicon glyphicon-home"></i>
+	                <span class="menu-text">中国经营报 </span>
+	            </a>
+	        </li>
+	        <li>
+	            <a href="javascript:void(0)">
+	                <i class="menu-icon fa fa-laptop"></i>
+	                <span class="menu-text"> 中国经营网 </span>
+	            </a>
+	        </li>
+	        <li>
+	            <a href="javascript:void(0)">
+	                <i class="menu-icon fa fa-th"></i>
+	                <span class="menu-text"> 中国经营报 </span>
+	            </a>
+	        </li>
+            <li>
+                <a href="widgets.html">
+                    <i class="menu-icon fa fa-weibo"></i>
+                    <span class="menu-text"> 官方微博 </span>
+                </a>
+            </li>
+            <li>
+                <a href="widgets.html">
+                    <i class="menu-icon fa fa-weixin"></i>
+                    <span class="menu-text"> 官方微信 </span>
+                </a>
+            </li>
+		</ul>
+        <!-- /Sidebar Menu -->
+
+</div>

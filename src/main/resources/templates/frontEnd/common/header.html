@@ -1,0 +1,85 @@
+<div th:fragment="header">
+	<!-- ctx 获取值 -->
+	<input type="hidden" id="ctx" th:value="${#httpServletRequest.contextPath+'/'+session.tenantMark}"/>
+	
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="navbar-container">
+                <!-- Navbar Barnd -->
+                <div class="navbar-header pull-left">
+                    <a href="#" class="navbar-brand">
+                        <small>
+                           版权监测统计分析
+                        </small>
+                    </a>
+                </div>
+                <!-- /Navbar Barnd -->
+
+                <!-- Sidebar Collapse -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="collapse-icon fa fa-bars"></i>
+                </div>
+                <!-- /Sidebar Collapse -->
+                <!-- Account Area and Settings -->
+                <div class="navbar-header pull-right">
+                    <div class="navbar-account">
+                        <ul class="account-area">
+                        	<li>
+                                <a class="login-area dropdown-toggle" href="javascript:void(0)" th:href="@{/gotoList}">
+                                    <div class="avatar" title="View your public profile">
+                                        <i class="fa fa-exclamation-triangle"></i>
+                                    </div>
+                                    <section>
+                                        <h2><span class="profile"><span>测试</span></span></h2>
+                                    </section>
+                                </a>
+                                
+                            </li>
+                            <li>
+                                <a class="login-area dropdown-toggle" data-toggle="dropdown">
+                                    <div class="avatar" title="View your public profile">
+                                        <i class="fa fa-user fa-lg"></i>
+                                    </div>
+                                    <section>
+                                        <h2><span class="profile"><span>admin</span></span></h2>
+                                    </section>
+                                </a>
+                                
+                            </li>
+                            <li>
+                                <a class="login-area upload"  >
+                                    <div class="avatar" title="View your public profile">
+                                        <i class="fa fa-cloud-upload fa-lg"></i>
+                                    </div>
+                                    <section>
+                                        <h2><span class="profile"><span>上传</span></span></h2>
+                                    </section>
+                                </a>
+                                
+                            </li>
+                            <li>
+                            	<a class="login-area"  th:href="@{/logout}">
+                                    <div class="avatar" title="View your public profile">
+                                        <i class="fa fa-sign-out fa-lg"></i>
+                                    </div>
+                                    <section>
+                                        <h2><span class="profile"><span>退出</span></span></h2>
+                                    </section>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /Account Area and Settings -->
+            </div>
+        </div>        
+    </div>
+    <!-- /Navbar -->
+    
+	<!--Basic Scripts-->
+	<script src="../../static/assets/js/jQuery-2.1.4.min.js" th:src="@{/assets/js/jQuery-2.1.4.min.js}"></script>
+	<script src="../../static/assets/js/bootstrap.min.js" th:src="@{/assets/js/bootstrap.min.js}"></script>
+	
+	<script src="../../static/frontEnd/js/dynamic/common/header.js" th:src="@{/frontEnd/js/dynamic/common/header.js}"></script>
+</div>

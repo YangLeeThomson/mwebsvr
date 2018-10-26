@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>被转发情况分析</title>
+
+    <meta name="keywords" content="iNews,智慧新闻,聚合平台,内容聚合,自然语言处理,新闻舆情,采编助手,新闻分析 ,News,intelligent news" />
+	<meta name="description" content="iNews智慧新闻软件是北京荣之联科技股份有限公司自主研发产品，是面向政府、媒体行业推出的智慧化新闻生产服务工具。iNews采用领先的大数据和自然语言处理技术，帮助用户打造优质内容聚合平台，提高内容加工效率和内容质量，促进媒体融合。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit" />
+    <link rel="shortcut icon" href="../../../static/assets/images/favicon.ico" type="image/x-icon" th:href="@{/assets/images/favicon.ico}"/>
+    <!-- 引入公用的CSS -->
+    <object style="display:none;" th:include="frontEnd/common/styles :: styles"></object>
+    <!-- Common CSS -->
+    <link rel="stylesheet"  href="../../../static/propagation/frontEnd/css/common.css" th:href="@{/propagation/frontEnd/css/common.css}"/>
+    <!-- Self CSS -->
+    <link rel="stylesheet"  href="../../../static/propagation/frontEnd/css/mediaForwarding.css" th:href="@{/propagation/frontEnd/css/mediaForwarding.css}"/>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="navbar-container">
+                <!-- Navbar Barnd -->
+                <div class="navbar-header pull-left">
+                    <a href="#" class="navbar-brand">
+                        <small>
+                            新闻传播监测系统
+                        </small>
+                    </a>
+                </div>
+                <!-- /Navbar Barnd -->
+                <!-- Sidebar Collapse -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="collapse-icon fa fa-bars"></i>
+                </div>
+                <!-- /Sidebar Collapse -->
+                <!-- Account Area and Settings -->
+                <div class="navbar-header pull-right">
+                    <div class="navbar-account">
+                        <ul class="account-area">
+                            <li>
+                                <a class="login-area dropdown-toggle" data-toggle="dropdown">
+                                    <div class="avatar" title="View your public profile">
+                                        <i class="fa fa-user fa-lg"></i>
+                                    </div>
+                                    <section>
+                                        <h2><span class="profile"><span>admin</span></span></h2>
+                                    </section>
+                                </a>
+                            </li>
+                            <li>
+                            	<a class="login-area"  th:href="@{/logout}">
+                                    <div class="avatar" title="View your public profile">
+                                        <i class="fa fa-sign-out fa-lg"></i>
+                                    </div>
+                                    <section>
+                                        <h2><span class="profile"><span>退出</span></span></h2>
+                                    </section>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /Account Area and Settings -->
+            </div>
+        </div>
+    </div>
+    <!-- /Navbar -->
+    
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+        <div class="page-container">
+            <div class="page-sidebar" id="sidebar">
+                <div class="page-container">
+                    <div class="sidebar-header-wrapper"></div>
+                    <!-- /Page Sidebar Header -->
+                    <!-- Sidebar Menu -->
+                    <ul class="nav sidebar-menu">
+                    	<li>
+	                        <a href="javascript:void(0)" target="_blank" th:href='@{/}'>
+	                            <i class="menu-icon glyphicon glyphicon-home"></i>
+	                            <span class="menu-text">苏州电视台</span>
+	                            <i class="menu-expand"></i>
+	                        </a>
+	                        <ul class="submenu" style="display: none;">
+	                        	<li data-requestid="4">
+	                        		<a href="javascript:void(0)"><span class="menu-text">苏州台</span></a>
+	                        	</li>
+	                        </ul>
+	                    </li>
+                        <li >
+	                        <a href="javascript:void(0)" target="_blank" th:href='@{/gotoIndex}'>
+	                            <i class="menu-icon glyphicon glyphicon-home"></i>
+	                            <span class="menu-text">综合传播力分析</span>
+	                        </a>
+	                    </li>
+	                    <li class="active">
+	                        <a href="javascript:void(0)" th:href="@{/gotoMediaForwarding}" target="_blank">
+	                            <i class="menu-icon fa fa-th"></i>
+	                            <span class="menu-text">被转发情况分析</span>
+	                        </a>
+	                    </li>
+	                    <li >
+	                        <a href="javascript:void(0)" th:href="@{/gotoHotImpact}" target="_blank">
+	                            <i class="menu-icon fa fa-weibo"></i>
+	                            <span class="menu-text">热点话题影响分析</span>
+	                        </a>
+	                    </li>
+                    </ul>
+                    <!-- /Sidebar Menu -->
+
+                </div>
+            </div>
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="#" th:href="@{/gotoIndex}">综合传播力分析</a>
+                        </li>
+                        <li class="active">
+                            被转发情况分析
+                        </li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Body -->
+                <div class="page-body">
+                	<div class="row">
+                        <div class="col-lg-4 col-sm-4 col-xs-12">
+                            <div class="widget">
+                                <div class="widget-body">
+                                    <div class="forwarding-way">
+                                        <img src="../../../static/propagation/frontEnd/images/suzhoulogo.png" th:src="@{/propagation/frontEnd/images/suzhoulogo.png}"/>
+                                        <p class="forwarding-way-title text-right">总转发次数：<span>1256</span></p>
+                                        <div id="forwarding-way-echarts" style="width:100%;height: 300px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="col-lg-8 col-sm-8 col-xs-12">
+                            <div class="widget">
+                                <div class="widget-body">
+                                    <p class="forwarding-ranking-title">转发媒体Top-10</p>
+                                    <div id='forwarding-ranking-echarts' style="width: 100%;height: 300px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="widget">
+                                <div class="widget-header bordered-bottom bordered-sky">
+                                    <span class="widget-caption">最多转发文章Top-20</span>
+                                </div>
+                                <div class="widget-body">
+                                    <table class="table table-hover table-striped table-bordered table-condensed text-center forwarding-most-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 150px">版块</th>
+                                                <th>标题</th>
+                                                <th class="text-center">转发次数</th>
+                                                <th class="text-center">发布时间</th>
+                                                <th class="text-center">作者</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr role="row" class="odd">
+                                                <td>一带一路峰会专刊</td>
+                                                <td class="title-ellipsis">
+                                                    <a href="javascript:void(0)" target="_blank">搭上“一带一路”快车  长虹海外业务占比将超过30%</a>
+                                                </td>
+                                                <td class="sorting_1">26</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>柏源</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td>经济大势</td>
+                                                <td class="title-ellipsis">
+                                                    <a href="javascript:void(0)" target="_blank">比特币价格创新高   监管新规或6月出台</a>
+                                                </td>
+                                                <td class="sorting_1">20</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>戴闰秒</td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>经济大势</td>
+                                                <td class="title-ellipsis">
+                                                    <a href="javascript:void(0)" target="_blank">富士康为何转向美国？</a>
+                                                </td>
+                                                <td class="sorting_1">15</td><td>2017-05-13 06:00</td><td>齐俊杰</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td>一带一路峰会专刊</td>
+                                                <td class="title-ellipsis">
+                                                    <a href="javascript:void(0)" target="_blank">昆明分行创新契约式基金支持重大基建</a>
+                                                </td>
+                                                <td class="sorting_1">12</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>漫游</td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>智在公司</td>
+                                                <td class="title-ellipsis">
+                                                    <a href="javascript:void(0)" target="_blank">主营业务下滑 聚美优品两年三次跨界忙转型</a>
+                                                </td>
+                                                <td class="sorting_1">12</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>张靖超</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td>营商环境</td>
+                                                <td class="title-ellipsis">
+                                                    <a href="javascript:void(0)" target="_blank">负债率居高不下   泛海控股转型加速去库存</a>
+                                                </td>
+                                                <td class="sorting_1">10</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>许晓</td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>快消</td>
+                                                <td class="title-ellipsis">
+                                                    <a href="javascript:void(0)" target="_blank">35亿投资7年未兑现  新希望三年业绩瘦身91亿</a>
+                                                </td>
+                                                <td class="sorting_1">9</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>党鹏</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td>智在公司</td>
+                                                <td class="title-ellipsis">
+                                                    <a href="javascript:void(0)" target="_blank">乐视造车“雾里看花”   谁是下一个“梦想合伙人”</a>
+                                                </td>
+                                                <td class="sorting_1">9</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>刘珊珊</td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>营商环境</td>
+                                                <td class="title-ellipsis">
+                                                    <a href="javascript:void(0)" target="_blank">高运营成本引铜掌柜亏损</a>
+                                                </td>
+                                                <td class="sorting_1">9</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>郭建杭</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td>营商环境</td>
+                                                <td class="title-ellipsis">
+                                                    <a href="javascript:void(0)" target="_blank">新政后的永清楼市：“限购令”下开发商“变通”卖房</a>
+                                                </td>
+                                                <td class="sorting_1">8</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>李未来</td>
+                                            </tr>
+
+                                            <tr role="row" class="odd">
+                                                <td>营商环境</td>
+                                                <td class="title-ellipsis"><a href="javascript:void(0)" target="_blank">从无序生长到合规改造 P2P网络借贷风控进化之路</a>
+                                                </td>
+                                                <td class="sorting_1">5</td><td>2017-05-13 06:00</td><td>佚名</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td>一带一路峰会专刊</td>
+                                                <td class="title-ellipsis"><a href="javascript:void(0)" target="_blank">互联网企业布局网上“丝绸之路”</a></td>
+                                                <td class="sorting_1">4</td>
+
+                                                <td>2017-05-13 06:00</td><td>赵正</td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>营商环境</td>
+                                                <td class="title-ellipsis"><a href="javascript:void(0)" target="_blank">川内城商行更名谋求扩张</a></td>
+                                                <td class="sorting_1">4</td>
+                                                <td>2017-05-13 06:00</td><td>崔文官</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td>一带一路峰会专刊</td>
+                                                <td class="title-ellipsis"><a href="javascript:void(0)" target="_blank">中石化欲做大“一带一路”三大合作区</a></td>
+                                                <td class="sorting_1">4</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>李正豪，黄杰</td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>营商环境</td>
+                                                <td class="title-ellipsis"><a href="javascript:void(0)" target="_blank">尔康制药被疑涉嫌财务造假</a></td>
+                                                <td class="sorting_1">4</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>高瑜静，张家振</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td>快消</td>
+                                                <td class="title-ellipsis"><a href="javascript:void(0)" target="_blank">信阳毛尖集团深陷债务泥潭</a></td>
+                                                <td class="sorting_1">4</td>
+                                                <td>2017-05-13 06:00</td><td>刘永</td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>智在公司</td>
+                                                <td class="title-ellipsis"><a href="javascript:void(0)" target="_blank">惠而浦“第一阵营”计划前景难料</a></td>
+                                                <td class="sorting_1">4</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>孙聪颖</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td>营商环境</td>
+                                                <td class="title-ellipsis"><a href="javascript:void(0)" target="_blank">长城人寿拟增资50亿   “调整发展之年”成效待考</a></td>
+                                                <td class="sorting_1">4</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>宋文娟、曹驰</td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>营商环境</td>
+                                                <td class="title-ellipsis"><a href="javascript:void(0)" target="_blank">举牌方要约收购  爱建集团控制权展开白刃战</a></td>
+                                                <td class="sorting_1">4</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>罗辑</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td>一带一路峰会专刊</td>
+                                                <td class="title-ellipsis"><a href="javascript:void(0)" target="_blank">试水重要节点城市  国美新零售激活丝路商贸</a></td>
+                                                <td class="sorting_1">3</td>
+                                                <td>2017-05-13 06:00</td>
+                                                <td>赵正</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+        </div>
+
+    </div>
+	
+	<!-- 引入公用的JS -->
+    <object style="display:none;" th:include="frontEnd/common/scripts :: scripts"></object>
+    
+
+    <!-- echarts -->
+    <script src="https://cdn.bootcss.com/echarts/3.5.4/echarts.min.js"></script>
+    
+    <!-- Self JS -->
+    <script src="../../../static/propagation/frontEnd/js/static/mediaForwarding.js" th:src="@{/propagation/frontEnd/js/static/mediaForwarding.js}"></script>
+</body>
+</html>

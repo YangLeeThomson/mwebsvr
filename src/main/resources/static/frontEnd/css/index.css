@@ -1,0 +1,171 @@
+@media (max-width: 1200px){
+	.reprinted-query .timeBox{
+		margin-top:10px;
+	}
+}
+.page-body{
+	padding:10px 10px 24px;
+}
+.widget{
+	margin-bottom:10px !important; 
+}
+.updata-time{
+	float: right;
+	margin-right: 25px;
+}
+.updata-time em{
+	font-style:inherit;
+}
+.navbar .navbar-inner .navbar-header .navbar-account .account-area .login-area .avatar{
+	margin-right: 5px;
+	line-height:25px;
+	text-align: center;
+	border-left:0px;
+}
+.avatar i{
+	color: #fff;
+}
+.manuscript-title{
+	margin-top:7px;
+}
+.remarks{
+	margin-top: 7px;
+	color: #ccc
+}
+.reprinted-query-button button{
+	margin-right: 40px;
+}
+
+
+
+.table-reprinted-most tbody td:nth-child(2),
+.table-reprinted-most tbody td:nth-child(4),
+.table-reprinted-most tbody td:nth-child(5),
+.table-reprinted-most tbody td:nth-child(6){
+	text-align: center;
+}
+.table-reprinted-ranking tbody td:nth-child(3){
+	text-align: right;
+}
+
+.table-copyright-ranking tbody td:nth-child(3){
+	text-align: right;
+}
+
+input[type=checkbox], input[type=radio]{
+	left: inherit;
+	opacity: 1;
+	margin:0px;
+}
+
+.reprinted-type{
+	padding-right:0px;
+	margin-top: 10px;
+	text-align: center; 
+}
+
+.export-excel{
+	margin-top: 4px;
+	margin-right: 10px;
+}
+
+.reprinted-copyright-cost .widget-body{
+	height: 323px;
+	padding-top:20px;
+}
+.reprinted-copyright-cost .reprinted-copyright-cost-content .reprinted-copyright-count{
+	text-align:center;
+	margin-top:28px;
+	font-size:16px;
+}
+.reprinted-copyright-cost .reprinted-copyright-cost-content .reprinted-copyright-count span{
+	margin-left:5px;
+	margin-right:5px;
+	font-size:28px;
+	
+}
+
+#republished-week-table tbody tr td:nth-child(2),
+#republished-week-table tbody tr td:nth-child(3),
+#republished-week-table tbody tr td:nth-child(6),
+#republished-week-table tbody tr td:nth-child(7),
+#republished-week-table tbody tr td:nth-child(8),
+#republished-week-table tbody tr td:nth-child(9),
+#republished-week-table tbody tr td:nth-child(10){
+	text-align: center;
+}
+
+
+.auto_hidden {
+
+    width:204px;border-top: 1px solid #333;
+
+    border-bottom: 1px solid #333;
+
+    border-left: 1px solid #333;
+
+    border-right: 1px solid #333;
+
+    position:absolute;
+
+    display:none;
+
+}
+
+.auto_show {
+
+    width:204px;
+
+    border-top: 1px solid #333;
+
+    border-bottom: 1px solid #333;
+
+    border-left: 1px solid #333;
+
+    border-right: 1px solid #333;
+
+    position:absolute;
+
+    z-index:9999; /* 设置对象的层叠顺序 */
+
+    display:block;
+
+}
+
+.auto_onmouseover{
+
+    color:#ffffff;
+
+    background-color:highlight;
+
+    width:100%;
+
+}
+
+.auto_onmouseout{
+
+    color:#000000;
+
+    width:100%;
+
+    background-color:#ffffff;
+
+}
+
+.manuscript-num{
+	margin-top:3px;
+	margin-bottom:0px;
+}
+.manuscript-content{
+	margin-bottom:0px;
+	padding-bottom:5px;
+	border-bottom:1px solid #eee;
+}
+
+.unit_name_btn,.query_str_btn{
+	cursor:pointer;
+}
+.reprintType,.status{
+	display:inline-block;
+	width:inherit;
+}

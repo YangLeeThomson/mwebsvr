@@ -1,0 +1,21 @@
+
+.forwarding-way-title,
+.forwarding-ranking-title{
+	font-size: 14px;
+	font-weight: bold;
+}
+.forwarding-most-table tbody tr td:nth-child(2){
+	text-align: left;
+}
+.forwarding-way img{
+	display: inline-block;
+	width: 50%;
+}
+.forwarding-way p{
+	position: absolute;
+	right: 32px;
+	top: 20px;
+}
+.widget-caption{
+	font-weight: bold;
+}

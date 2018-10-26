@@ -1,0 +1,73 @@
+.page-body{
+	padding:10px 10px 24px;
+}
+.widget{
+	margin-bottom:10px !important;
+}
+.navbar .navbar-inner .navbar-header .navbar-account .account-area .login-area .avatar{
+	margin-right: 5px;
+	line-height:25px;
+	text-align: center;
+	border-left:0px;
+}
+.avatar i{
+	color: #fff;
+}
+.widget-caption-right{
+	margin-top: 6px;
+	margin-right: 10px;
+}
+
+.reprinted-main{
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+	padding: 4px;
+}
+.reprinted-main p{
+	font-size:16px;
+	line-height:32px;
+}
+.reprinted-main-original p,
+.screenshots-contrast .reprinted-main p{
+	text-indent:2em;
+}
+.reprinted-main img{
+	width:95%;
+}
+.change-contrast{
+	text-align:left;
+	padding-top:5px;
+	padding-bottom:8px;
+}
+.change-contrast .change-contrast-similarity{
+	margin-left:5px;
+	display:inline-block;
+	margin-bottom:0px;
+	
+}
+.contrast-content-table{
+	border-top: 0px;
+}
+.contrast-content-table thead tr th{
+	padding: 0px;
+}
+
+.contrast-content-table .contrast-content-title,
+.contrast-content-table .contrast-content-title{
+	font-weight:bold;
+}
+.originalNewsContrastTitle,
+.reprintNewsContrastTitle{
+	border-bottom:1px solid #eee;
+	padding-bottom:8px;
+}
+
+.originalNewsTable .widget-caption,
+.reprintNewsTable .widget-caption{
+	font-weight:bold !important;
+}
+
+.breadcrumbs-title{
+	color:#333;
+}

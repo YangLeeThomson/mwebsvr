@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>转载情况对比分析_iMonitor</title>
+
+    <meta name="keywords" content="iNews,智慧新闻,聚合平台,内容聚合,自然语言处理,新闻舆情,采编助手,新闻分析 ,News,intelligent news" />
+	<meta name="description" content="iNews智慧新闻软件是北京荣之联科技股份有限公司自主研发产品，是面向政府、媒体行业推出的智慧化新闻生产服务工具。iNews采用领先的大数据和自然语言处理技术，帮助用户打造优质内容聚合平台，提高内容加工效率和内容质量，促进媒体融合。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit" />
+    <link rel="shortcut icon" href="../../static/assets/images/favicon.ico" type="image/x-icon" th:href="@{/assets/images/favicon.ico}"/>
+    <!-- 引入公用的CSS -->
+    <object style="display:none;" th:include="frontEnd/common/styles :: styles"></object>
+    <!-- Self Css -->
+    <link rel="stylesheet" type="text/css" href="../../static/frontEnd/css/reprinteddatail.css" th:href="@{/frontEnd/css/reprinteddatail.css}" />
+</head>
+<body>
+	<input type="hidden" th:value="${webpageCode}" id="webpageCode"/>
+	<input type="hidden" th:value="${newsId}" id="newsId"/>
+	<input type="hidden" th:value="${contentSimilarity}" id="contentSimilarity"/>
+	
+	<div id="header" th:include="frontEnd/common/header :: header"></div>
+    
+    <!-- Main Container -->
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+        <div class="page-container">
+            <!-- Page Content -->
+            <div class="page-content" style="margin-left:0px;">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="/imonitor" th:href="@{/}">首页</a>
+                        </li>
+                        <li class="active">"<span class="breadcrumbs-title"></span>"的转载情况对比分析</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Body -->
+                <div class="page-body">
+                    <div class='row'>
+                    	<div class='col-lg-12 col-sm-12 col-xs-12'>
+                    		<div class="change-contrast">
+		            			<a class="btn btn-info btn-sm" href="javascript:void(0);"><i class="fa fa-picture-o"></i> 截图对比</a>
+		                		<a class="btn btn-default btn-sm" href="javascript:void(0);"><i class="fa fa-file-text-o"></i> 正文对比</a>
+		                		<p class="change-contrast-similarity">相似度：<span></span></p>
+		            		</div>
+                    		
+                    	</div>
+                    	<div class='col-lg-6 col-sm-6 col-xs-12'>
+                            <div class="widget originalNewsTable">
+                            	<div class="widget-header bordered-bottom bordered-sky">
+                                    <span class="widget-caption">原文</span>
+                                    <span class="label label-azure widget-caption-right"></span>
+                                </div>
+                                <div class="widget-body">
+                                    <table class="table table-bordered table-hover contrast-content-table  text-center">
+                                        <thead>
+                                            <tr>
+                                            	<th style="min-width:100px;width:100px"></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>标题</td>
+                                                <td class="contrast-content-title"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>发布链接</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>发布时间</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>发布终端</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>发布板块</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>正文字数</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>稿号</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div><!--Widget Body-->
+                            </div>
+                        </div>
+                    	<div class='col-lg-6 col-sm-6 col-xs-12'>
+                            <div class="widget reprintNewsTable">
+                            	<div class="widget-header bordered-bottom bordered-sky">
+                                    <span class="widget-caption">转载</span>
+                                    <span class="label label-azure widget-caption-right"></span>
+                                </div>
+                                <div class="widget-body">
+                                    <table class="table table-bordered table-hover contrast-content-table table-ellipsis  text-center">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th style="min-width:100px;width:100px"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="contrast-content-title"></td>
+                                                <td>标题</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="title-ellipsis"></td>
+                                                <td>发布链接</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>发布时间</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>发布终端</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>发布板块</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>正文字数</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>标注来源</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div><!--Widget Body-->
+                            </div>
+                        </div>
+                        
+                        
+                        <div class='col-lg-6 col-sm-6 col-xs-12'>
+                            <div class="widget originalNewsContrast">
+                                <div class="widget-body">
+                                    <div class='reprinted-content screenshots-contrast'>
+                                    	<p class="originalNewsContrastTitle">截图时间：<span></span></p>
+                                        <div class="reprinted-main"></div>
+                                    </div>
+                                    <div class='reprinted-content maincontent-contrast hide'>
+                                        <div class="reprinted-main reprinted-main-original"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						<div class='col-lg-6 col-sm-6 col-xs-12'>
+                            <div class="widget reprintNewsContrast">
+                                <div class="widget-body">
+                                    <div class='reprinted-content screenshots-contrast'>
+                                    	<p class="reprintNewsContrastTitle">截图时间：<span></span></p>
+                                        <div class="reprinted-main text-center"></div>
+                                    </div>
+
+                                    <div class='reprinted-content maincontent-contrast hide'>
+                                        <div class="reprinted-main "></div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+        </div>
+        <!-- /Page Container -->
+        <!-- Main Container -->
+
+    </div>
+
+    <!-- 引入公用的JS -->
+    <object style="display:none;" th:include="frontEnd/common/scripts :: scripts"></object>
+    
+    <script src="../../static/assets/js/imgZoom/jquery.mousewheel.js" th:src="@{/assets/js/imgZoom/jquery.mousewheel.js}"></script>
+     <script src="../../static/assets/js/imgZoom/jquery.imgZoom.js" th:src="@{/assets/js/imgZoom/jquery.imgZoom.js}"></script>
+    <script src="../../static/assets/js/imgZoom/jquery.drag.js" th:src="@{/assets/js/imgZoom/jquery.drag.js}"></script>
+
+    <!-- Self Scripts -->
+    <script src="../../static/frontEnd/js/static/reprinteddatail.js" th:src="@{/frontEnd/js/dynamic/reprinteddatail.js}"></script>
+</body>
+<!--  /Body -->
+</html>

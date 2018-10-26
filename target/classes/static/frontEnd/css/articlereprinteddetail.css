@@ -1,0 +1,108 @@
+.page-body{
+	padding:10px 10px 24px;
+}
+.widget{
+	margin-bottom:10px !important; 
+}
+.table-ellipsis{
+	table-layout: fixed;
+}
+.table-ellipsis .title-ellipsis{
+	width: 100%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.updata-time{
+	float: right;
+	margin-right: 25px;
+}
+.navbar .navbar-inner .navbar-header .navbar-account .account-area .login-area .avatar{
+	margin-right: 5px;
+	line-height:25px;
+	text-align: center;
+	border-left:0px;
+}
+.avatar i{
+	color: #fff;
+}
+.manuscript-title{
+	margin-top:7px;
+}
+
+.main-content-article{
+/* 	height: 976px; */
+	padding:0px 25px;
+}
+input[type=checkbox], input[type=radio]{
+	left: inherit;
+	opacity: 1;
+	margin:0px;
+}
+
+#reprinted-table tbody tr td:nth-child(2),
+#reprinted-table tbody tr td:nth-child(3),
+#reprinted-table tbody tr td:nth-child(6),
+#reprinted-table tbody tr td:nth-child(7),
+#reprinted-table tbody tr td:nth-child(8),
+#reprinted-table tbody tr td:nth-child(9),
+#reprinted-table tbody tr td:nth-child(10){
+	text-align: center;
+}
+
+.export-excel{
+	margin-top: 4px;
+	margin-right: 10px;
+}
+
+.suspected-infringement-box .widget-body{
+/* 	height: 324px; */
+/* 	padding-top: 15px; */
+}
+.suspected-infringement-box .widget-body em{
+	font-style:inherit;
+}
+.suspected-infringement-box .widget-body p{
+/* 	display:inline-block; */
+}
+.suspected-infringement-count{
+	position:relative;
+	margin-top:20px;
+	text-align:center;
+}
+.suspected-infringement-count p{
+	font-size:14px;
+}
+.suspected-infringement-count p span{
+	margin-left:5px;
+	margin-right:5px;
+	font-size:28px;
+}
+.time-slice{
+	float:right;
+	margin-right:15px;
+	margin-top:10px;
+}
+
+.main-content-title strong{
+	font-weight:normal;
+}
+.main-content-title p{
+	border-bottom:1px solid #eee;
+	padding-bottom:10px;
+}
+.main-content-title p strong{
+	margin-right:15px;
+}
+.main-content-article p{
+	text-indent:2em;
+	font-size:18px;
+	line-height:32px;
+}
+.breadcrumbs-title{
+	color:#333;
+}
+.reprintType,.status{
+	display:inline-block;
+	width:inherit;
+}

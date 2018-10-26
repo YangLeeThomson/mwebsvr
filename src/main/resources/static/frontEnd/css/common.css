@@ -1,0 +1,21 @@
+.data-error-time{
+	background:url(../images/jiaobiao.png) no-repeat;
+}
+.navbar .navbar-inner .navbar-header .navbar-account .account-area .login-area .avatar{
+	margin-right: 5px;
+	line-height:25px;
+	text-align: center;
+	border-left:0px;
+}
+.avatar i{
+	color: #fff;
+}
+.table-ellipsis{
+	table-layout: fixed;
+}
+.table-ellipsis .title-ellipsis{
+	width: 100%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}

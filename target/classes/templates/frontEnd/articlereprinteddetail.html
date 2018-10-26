@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>转载统计分析_iMonitor</title>
+
+    <meta name="keywords" content="iNews,智慧新闻,聚合平台,内容聚合,自然语言处理,新闻舆情,采编助手,新闻分析 ,News,intelligent news" />
+	<meta name="description" content="iNews智慧新闻软件是北京荣之联科技股份有限公司自主研发产品，是面向政府、媒体行业推出的智慧化新闻生产服务工具。iNews采用领先的大数据和自然语言处理技术，帮助用户打造优质内容聚合平台，提高内容加工效率和内容质量，促进媒体融合。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit" />
+    <link rel="shortcut icon" href="../../static/assets/images/favicon.ico" type="image/x-icon" th:href="@{/assets/images/favicon.ico}"/>
+    
+    <!-- 引入公用的CSS -->
+    <object style="display:none;" th:include="frontEnd/common/styles :: styles"></object>
+
+    <!-- Daterangepicker Css -->
+    <link rel="stylesheet" type="text/css" href="../../static/assets/js/daterangepicker/css/daterangepicker.min.css" th:href="@{/assets/js/daterangepicker/css/daterangepicker.min.css}"/>
+    <!-- DataTables Css -->
+    <link rel="stylesheet" type="text/css" href="../../static/assets/css/dataTables.bootstrap.css" th:href="@{/assets/css/dataTables.bootstrap.css}"/>
+
+    <!-- mCustomScrollbar Css -->
+    <link rel="stylesheet" type="text/css" href="../../static/assets/css/jquery.mCustomScrollbar.min.css" th:href="@{/assets/css/jquery.mCustomScrollbar.min.css}"/>
+
+    <!-- Self Css -->
+    <link rel="stylesheet" type="text/css" href="../../static/frontEnd/css/articlereprinteddetail.css" th:href="@{/frontEnd/css/articlereprinteddetail.css}"/>
+</head>
+<body>
+	<input type="hidden" th:value="${queryStr}" id="queryStr"/>
+	<input type="hidden" th:value="${startTime}" id="startTime"/>
+	<input type="hidden" th:value="${endTime}" id="endTime"/>
+	<input type="hidden" th:value="${newsId}" id="newsId"/>
+	
+	<div id="header" th:include="frontEnd/common/header :: header"></div>
+    <!-- Main Container -->
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+        <div class="page-container">
+            <!-- Page Content -->
+            <div class="page-content" style="margin-left:0px;">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li class="active">
+                            <i class="fa fa-home"></i>
+                            <a href="/imonitor" th:href="@{/}">首页</a>
+                        </li>
+                        <li class="active">"<span class="breadcrumbs-title"></span>"的转载统计分析</li>
+                    </ul>
+                  <p class="time-slice"> 时&nbsp;间：<span class='startTime' th:remove="body">2017-04-19</span>&nbsp;至&nbsp;<span class='endTime' th:remove="body">2017-04-19</span></p>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Body -->
+                <div class="page-body">
+                    <div class="row" >
+                        <div class="col-xs-12 col-md-12 col-lg-8">
+                            <div class="widget">
+                                <div class="widget-body">
+                                	<div class="main-content-title">
+                                		<h3></h3>
+                                		<p>
+                                			<strong>发稿时间：<span class="file-time"></span></strong>
+                                			<strong>作者：<span class="file-author"></span></strong>
+                                			<strong>板块：<span class="file-plate"></span></strong>
+                                		</p>
+                                	</div>
+                                    <div class="main-content-article"   th:remove="body">
+                                        <span>文章内容</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-12 col-lg-4">
+                            <div class="  suspected-infringement-box">
+                                <div class="widget">
+                                    <div class="widget-header bordered-bottom bordered-sky">
+                                        <span class="widget-caption">版权存疑占比</span>
+                                    </div><!--Widget Header-->
+                                    <div class="widget-body">
+		                             	<div id='suspected-infringement-echarts' style="width: 100%;height: 200px"></div>
+		                              	<div class="suspected-infringement-count">
+		                                	<p class="reprinted-copyright-count">
+		                                		总转载<span></span>次
+		                                	</p>
+		                              	</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="widget">
+                                    <div class="widget-header bordered-bottom bordered-sky">
+                                        <span class="widget-caption">转载时间统计</span>
+                                    </div><!--Widget Header-->
+                                    <div class="widget-body">
+                                        <div id='suspected-ranking-echarts' style="width: 100%;height: 350px"></div>
+                                    </div><!--Widget Body-->
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="widget">
+                                    <div class="widget-header bordered-bottom bordered-sky">
+                                        <span class="widget-caption">各渠道被转载次数统计</span>
+                                    </div><!--Widget Header-->
+                                    <div class="widget-body">
+                                        <div id='terminal-proportion-echarts' style="width: 100%;height: 300px"></div>
+                                    </div><!--Widget Body-->
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="widget">
+                                <div class="widget-header bordered-bottom bordered-sky">
+                                    <span class="widget-caption">最新转载记录列表</span>
+                                    <a class="btn btn-blue btn-xs export-excel" id="articlereprintpio">导出</a>
+                                </div><!--Widget Header-->
+                                <div class="widget-body">
+                                    <div class="row" style="margin-bottom: 15px;">
+                                        <div class="col-xs-12 col-md-12 col-lg-12">
+                                            <form  class="form-inline bv-form" role="form">
+                                                <div class=" no-padding-left">
+                                                    <select class="form-control reprintType" name="country" data-bv-field="country">
+<!--                                                         <option value="1">网站转载</option> -->
+<!--                                                         <option value="2">微博转载</option> -->
+<!--                                                         <option value="3">微信转载</option> -->
+<!--                                                         <option value="4">APP转载</option> -->
+<!--                                                         <option value="">全部</option> -->
+                                                    </select>
+                                                    <select class="form-control status" name="country" data-bv-field="country">
+                                                    	<option value="">全部</option>
+                                                        <option value='0'>版权存疑</option>
+                                                        <option value='1'>标注来源</option>
+
+                                                    </select>
+                                                </div>
+                                            </form>
+                                        </div>
+<!--                                         <div class="col-xs-6 col-md-6 col-lg-6"></div> -->
+                                    </div>
+                                    <table class="table table-striped table-bordered table-hover table-ellipsis" id="reprinted-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:35px">
+                                                    <div class="checker" style="width:15px;height:18px;"><span class=""><input type="checkbox" class="group-checkable" data-set="#flip .checkboxes"/></span></div>
+                                                </th>
+                                                <th style="width:133px" class='text-center'>记录日期</th>
+                                                <th style="width:120px;" class='text-center'>转载单位</th>
+                                                <th>转载文章标题</th>
+                                                <th>原文标题</th>
+                                                <th style="width:133px;" class='text-center'>转载时间</th>
+                                                <th style="width:80px;" class='text-center'>相似度</th>
+                                                <th style="width:80px;" class='text-center'>转载类型</th>
+                                                <th style="width:100px;" class='text-center'>侵权情况</th>
+                                                <th style="width:80px;" class='text-center'>查看详情</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody th:remove="body">
+                                            <tr>
+                                                <td>
+                                                    <div class="checker"><span class=""><input type="checkbox" class="checkboxes colored-blue" value="1"/></span></div>
+                                                </td>
+                                                <td>2017-03-12 19:07</td>
+                                                <td>新华网</td>
+                                                <td>人民的名义引发热议</td>
+                                                <td>人民的名义</td>
+                                                <td>02-15 24:00</td>
+                                                <td>微博</td>
+                                                <td>疑似侵权</td>
+                                                <td><a href="javascript:void(0)">查看转载详情</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker"><span class=""><input type="checkbox" class="checkboxes colored-blue" value="1"/></span></div>
+                                                </td>
+                                                <td>2017-03-12 19:07</td>
+                                                <td>新华网</td>
+                                                <td>人民的名义引发热议</td>
+                                                <td>人民的名义</td>
+                                                <td>02-15 24:00</td>
+                                                <td>微博</td>
+                                                <td>疑似侵权</td>
+                                                <td><a href="javascript:void(0)">查看转载详情</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker"><span class=""><input type="checkbox" class="checkboxes colored-blue" value="1"/></span></div>
+                                                </td>
+                                                <td>2017-03-12 19:07</td>
+                                                <td>新华网</td>
+                                                <td>人民的名义引发热议</td>
+                                                <td>人民的名义</td>
+                                                <td>02-15 24:00</td>
+                                                <td>微博</td>
+                                                <td>疑似侵权</td>
+                                                <td><a href="javascript:void(0)">查看转载详情</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker"><span class=""><input type="checkbox" class="checkboxes colored-blue" value="1"/></span></div>
+                                                </td>
+                                                <td>2017-03-12 19:07</td>
+                                                <td>新华网</td>
+                                                <td>人民的名义引发热议</td>
+                                                <td>人民的名义</td>
+                                                <td>02-15 24:00</td>
+                                                <td>微博</td>
+                                                <td>疑似侵权</td>
+                                                <td><a href="javascript:void(0)">查看转载详情</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker"><span class=""><input type="checkbox" class="checkboxes colored-blue" value="1"/></span></div>
+                                                </td>
+                                                <td>2017-03-12 19:07</td>
+                                                <td>新华网</td>
+                                                <td>人民的名义引发热议</td>
+                                                <td>人民的名义</td>
+                                                <td>02-15 24:00</td>
+                                                <td>微博</td>
+                                                <td>疑似侵权</td>
+                                                <td><a href="javascript:void(0)">查看转载详情</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker"><span class=""><input type="checkbox" class="checkboxes colored-blue" value="1"/></span></div>
+                                                </td>
+                                                <td>2017-03-12 19:07</td>
+                                                <td>新华网</td>
+                                                <td>人民的名义引发热议</td>
+                                                <td>人民的名义</td>
+                                                <td>02-15 24:00</td>
+                                                <td>微博</td>
+                                                <td>疑似侵权</td>
+                                                <td><a href="javascript:void(0)">查看转载详情</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker"><span class=""><input type="checkbox" class="checkboxes colored-blue" value="1"/></span></div>
+                                                </td>
+                                                <td>2017-03-12 19:07</td>
+                                                <td>新华网</td>
+                                                <td>人民的名义引发热议</td>
+                                                <td>人民的名义</td>
+                                                <td>02-15 24:00</td>
+                                                <td>微博</td>
+                                                <td>疑似侵权</td>
+                                                <td><a href="javascript:void(0)">查看转载详情</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker"><span class=""><input type="checkbox" class="checkboxes colored-blue" value="1"/></span></div>
+                                                </td>
+                                                <td>2017-03-12 19:07</td>
+                                                <td>新华网</td>
+                                                <td>人民的名义引发热议</td>
+                                                <td>人民的名义</td>
+                                                <td>02-15 24:00</td>
+                                                <td>微博</td>
+                                                <td>疑似侵权</td>
+                                                <td><a href="javascript:void(0)">查看转载详情</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker"><span class=""><input type="checkbox" class="checkboxes colored-blue" value="1"/></span></div>
+                                                </td>
+                                                <td>2017-03-12 19:07</td>
+                                                <td>新华网</td>
+                                                <td>人民的名义引发热议</td>
+                                                <td>人民的名义</td>
+                                                <td>02-15 24:00</td>
+                                                <td>微博</td>
+                                                <td>疑似侵权</td>
+                                                <td><a href="javascript:void(0)">查看转载详情</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker"><span class=""><input type="checkbox" class="checkboxes colored-blue" value="1"/></span></div>
+                                                </td>
+                                                <td>2017-03-12 19:07</td>
+                                                <td>新华网</td>
+                                                <td>人民的名义引发热议</td>
+                                                <td>人民的名义</td>
+                                                <td>02-15 24:00</td>
+                                                <td>微博</td>
+                                                <td>疑似侵权</td>
+                                                <td><a href="javascript:void(0)">查看转载详情</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker"><span class=""><input type="checkbox" class="checkboxes colored-blue" value="1"/></span></div>
+                                                </td>
+                                                <td>2017-03-12 19:07</td>
+                                                <td>新华网</td>
+                                                <td>人民的名义引发热议</td>
+                                                <td>人民的名义</td>
+                                                <td>02-15 24:00</td>
+                                                <td>微博</td>
+                                                <td>疑似侵权</td>
+                                                <td><a href="javascript:void(0)">查看转载详情</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div><!--Widget Body-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+        </div>
+        <!-- /Page Container -->
+        <!-- Main Container -->
+
+    </div>
+
+    <!-- 引入公用的JS -->
+    <object style="display:none;" th:include="frontEnd/common/scripts :: scripts"></object>
+
+    <!-- Daterangepicker Scripts -->
+    <script src="../../static/assets/js/daterangepicker/js/moment.min.js" th:src="@{/assets/js/daterangepicker/js/moment.min.js}"></script>
+    <script src="../../static/assets/js/daterangepicker/js/daterangepicker.min.js" th:src="@{/assets/js/daterangepicker/js/daterangepicker.min.js}"></script>
+
+    <!-- DataTables Js -->
+    <script src="../../static/assets/js/datatable/jquery.dataTables.min.js" th:src="@{/assets/js/datatable/jquery.dataTables.min.js}"></script>
+    <script src="../../static/assets/js/datatable/dataTables.bootstrap.min.js" th:src="@{/assets/js/datatable/dataTables.bootstrap.min.js}"></script>
+    <script src="../../static/assets/js/datatable/datatables-init.js" th:src="@{/assets/js/datatable/datatables-init.js}"></script>
+
+    <!-- Echarts Js -->
+<!--     <script src="../../static/assets/js/echarts/echarts.min.js" th:src="@{/assets/js/echarts/echarts.min.js}"></script> -->
+	<script src="http://cdn.bootcss.com/echarts/3.4.0/echarts.min.js"></script>
+    <!-- Search Engine -->
+    <script src="../../static/assets/js/searchengine/fixdiv.js" th:src="@{/assets/js/searchengine/fixdiv.js}"></script>
+    <script src="../../static/assets/js/searchengine/address.js" th:src="@{/assets/js/searchengine/address.js}"></script>
+
+    <script src="../../static/assets/js/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js" th:src="@{/assets/js/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js}"></script>
+    
+    <!-- Self Scripts -->
+    <script src="../../static/frontEnd/js/static/articlereprinteddetail.js" th:src="@{/frontEnd/js/dynamic/articlereprinteddetail.js}"></script>
+</body>
+<!--  /Body -->
+</html>

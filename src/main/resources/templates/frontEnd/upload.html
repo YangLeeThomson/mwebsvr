@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>传播监测首页_iMonitor</title>
+
+    <meta name="keywords" content="iNews,智慧新闻,聚合平台,内容聚合,自然语言处理,新闻舆情,采编助手,新闻分析 ,News,intelligent news" />
+	<meta name="description" content="iNews智慧新闻软件是北京荣之联科技股份有限公司自主研发产品，是面向政府、媒体行业推出的智慧化新闻生产服务工具。iNews采用领先的大数据和自然语言处理技术，帮助用户打造优质内容聚合平台，提高内容加工效率和内容质量，促进媒体融合。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit" />
+    <link rel="shortcut icon" href="../../static/assets/images/favicon.ico" type="image/x-icon" th:href="@{/assets/images/favicon.ico}"/>
+	<!-- 引入公用的CSS -->
+    <object style="display:none;" th:include="frontEnd/common/styles :: styles"></object>
+
+    <!-- Daterangepicker Css -->
+    <link rel="stylesheet" type="text/css" href="../../static/assets/js/daterangepicker/css/daterangepicker.min.css" th:href="@{/assets/js/daterangepicker/css/daterangepicker.min.css}"/>
+    <!-- jedate css -->
+	<link rel="stylesheet" type="text/css" href="../../static/assets/js/jedate/skin/jedate.css" th:href="@{/assets/js/jedate/skin/jedate.css}" />
+    <!-- Self Css -->
+    <link rel="stylesheet" type="text/css" href="../../static/frontEnd/css/upload.css" th:href="@{/frontEnd/css/upload.css}"/>
+</head>
+<body>
+	
+	<div id="header" th:include="frontEnd/common/header :: header"></div>
+    <!-- Navbar -->
+    <div class="navbar" th:remove="all">
+        <div class="navbar-inner">
+            <div class="navbar-container">
+                <!-- Navbar Barnd -->
+                <div class="navbar-header pull-left">
+                    <a href="#" class="navbar-brand">
+                        <small>
+                            新闻传播监测系统
+                        </small>
+                    </a>
+                </div>
+                <!-- /Navbar Barnd -->
+
+                <!-- Sidebar Collapse -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="collapse-icon fa fa-bars"></i>
+                </div>
+                <!-- /Sidebar Collapse -->
+                <!-- Account Area and Settings -->
+                <div class="navbar-header pull-right">
+                    <div class="navbar-account">
+                        <ul class="account-area">
+                            <li>
+                                <a class="login-area dropdown-toggle" data-toggle="dropdown">
+                                    <div class="avatar" title="View your public profile">
+                                        <i class="fa fa-user fa-lg"></i>
+                                    </div>
+                                    <section>
+                                        <h2><span class="profile"><span>admin</span></span></h2>
+                                    </section>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /Account Area and Settings -->
+            </div>
+        </div>
+    </div>
+    <!-- /Navbar -->
+    <!-- Main Container -->
+    <div class="main-container container-fluid" >
+        <!-- Page Container -->
+        <div class="page-container">
+            <!-- Page Content -->
+            <div class="page-content" style="margin-left:0px;">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li class="active">
+                            <i class="fa fa-home"></i>
+                            <a href="/imonitor" th:href="@{/}">首页</a>
+                        </li>
+                        <li >
+                            上传
+                        </li>
+                    </ul>
+<!--                     <span class='updata-time'>数据更新时间：<em></em></span> -->
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Body -->
+                <div class="page-body">
+					<div class="row">
+						<div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="widget">
+                                <div class="widget-body">
+                                     <div id="horizontal-form">
+                                     	<form id="registrationForm" method="post" class="form-horizontal bv-form" data-bv-message="This value is not valid" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove" data-bv-feedbackicons-validating="glyphicon glyphicon-refresh" novalidate="novalidate">
+                                     		<div class="row">
+		                                		<div class="col-lg-7 col-sm-7 col-xs-12">
+		                                			<div class="form-group">
+	                                                    <label class="col-lg-2 control-label">标题</label>
+	                                                    <div class="col-lg-10">
+	                                                        <input type="text" class="form-control" name="firstName" id="upload-title" placeholder="请输入标题名称" data-bv-notempty="true" data-bv-notempty-message="标题不能为空" /><i class="form-control-feedback glyphicon glyphicon-remove" data-bv-field="firstName" style=""></i>
+	                                                   </div>
+	                                                </div>
+	                                                <div class="form-group">
+	                                                    <label class="col-lg-2 control-label">正文</label>
+	                                                    <div class="col-lg-10">
+<!-- 	                                               			<div id="summernote"></div> -->
+																<textarea class="form-control" name='upload-plate'  placeholder="请输入正文" id="upload-content" style="height:300px;" data-bv-notempty="true" data-bv-notempty-message="内容不能为空"></textarea>
+	                                               		</div>
+	                                                </div>
+		                                		</div>
+		                                		<div class="col-lg-5 col-sm-5 col-xs-12">
+<!-- 		                                			<div class="form-group"> -->
+<!-- 	                                                    <label class="col-lg-2 control-label">稿号</label> -->
+<!-- 	                                                    <div class="col-lg-9"> -->
+<!-- 	                                                        <input type="text" class="form-control" name="upload-conut" id="upload-conut" placeholder="请输入稿号" data-bv-notempty="true" data-bv-notempty-message="稿号不能为空"/><i class="form-control-feedback glyphicon glyphicon-remove" data-bv-field="upload-conut" style=""></i> -->
+<!-- 	                                                    </div> -->
+<!-- 	                                                    <div class="col-lg-2"></div> -->
+<!-- 	                                                </div> -->
+													<div class="form-group">
+	                                                    <label class="col-lg-2 control-label">发布时间</label>
+	                                                    <div class="col-lg-9">
+	                                                        <input type="text" class="form-control" id='occurrence-time' name="occurrence-time" placeholder="请选择时间" data-bv-notempty="true" data-bv-notempty-message="时间不能为空" /><i class="form-control-feedback glyphicon glyphicon-remove" data-bv-field="occurrence-time" style=""></i>
+	                                                    </div>
+	                                                    <div class="col-lg-1"></div>
+	                                                </div>
+	                                                <div class="form-group">
+	                                                    <label class="col-lg-2 control-label">作者</label>
+	                                                    <div class="col-lg-9">
+	                                                        <input type="text" class="form-control" name="upload-author" id="upload-author" placeholder="请输入作者" data-bv-notempty="true" data-bv-notempty-message="作者不能为空" /><i class="form-control-feedback glyphicon glyphicon-remove" data-bv-field="upload-author" style=""></i>
+	                                                	</div>
+	                                                	<div class="col-lg-1"></div>
+	                                                </div>
+	                                                <div class="form-group">
+	                                                    <label class="col-lg-2 control-label">板块名称</label>
+	                                                    <div class="col-lg-9">
+	                                                        <input type="text" class="form-control" name="upload-plate" id="upload-plate" placeholder="请输入板块名称" data-bv-message="板块不能为空" data-bv-notempty="true" data-bv-notempty-message="板块不能为空" /><i class="form-control-feedback glyphicon glyphicon-remove" data-bv-field="upload-plate" style=""></i>
+	                                                	</div>
+	                                                	<div class="col-lg-1"></div>
+	                                                </div>
+	                                                <div class="form-group">
+	                                                    <label class="col-lg-2 control-label">发布渠道</label>
+	                                                    <div class="col-lg-9">
+	                                                    	<select class="form-control" name="country" data-bv-field="country" id="upload-channel">
+                                                              </select>
+	                                                	</div>
+	                                                	<div class="col-lg-1"></div>
+	                                                </div>
+	                                                
+		                                		</div>
+		                                		
+		                                		<div class="col-lg-5 col-sm-5 col-xs-12">
+			                                		<div class="form-group uploadBox">
+			                                			<div class="row">
+			                                				<div class="col-lg-offset-4 col-lg-8">
+			                                                     <input class="btn btn-info btn-lg" type="submit" id="upload-btn" value="上传"/>
+			                                                </div>
+			                                			</div>
+		                                                
+		                                            </div>
+	                                            </div>
+	                                            
+		                                	</div>
+                                     	</form>
+                                     </div>
+                                     
+                                </div><!--Widget Body-->
+                            </div><!--Widget-->
+                        </div>
+					</div>
+                
+                	<div id="alertBox">
+                		
+                	</div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+        </div>
+        <!-- /Page Container -->
+        <!-- Main Container -->
+
+    </div>
+	
+	<!-- 引入公用的JS -->
+    <object style="display:none;" th:include="frontEnd/common/scripts :: scripts"></object>
+
+    <!-- Daterangepicker Scripts -->
+    <script src="../../static/assets/js/daterangepicker/js/moment.min.js" th:src="@{/assets/js/daterangepicker/js/moment.min.js}"></script>
+    <script src="../../static/assets/js/daterangepicker/js/daterangepicker.min.js" th:src="@{/assets/js/daterangepicker/js/daterangepicker.min.js}"></script>
+
+	<script src="../../static/assets/js/summernote.js" th:src="@{/assets/js/summernote.js}"></script>
+	<!-- jedate JS -->
+	<script type="text/javascript" src="../../static/assets/js/jedate/jquery.jedate.min.js" th:src="@{/assets/js/jedate/jquery.jedate.min.js}"></script>
+    <!-- bootstrapValidator JS -->
+	<script type="text/javascript" src="../../static/assets/js/bootstrapValidator.js" th:src="@{/assets/js/bootstrapValidator.js}"></script>
+    
+    <!-- Self Scripts -->
+    <script src="../../static/frontEnd/js/static/upload.js" th:src="@{/frontEnd/js/dynamic/upload.js}"></script>
+    
+    
+</body>
+</html>
